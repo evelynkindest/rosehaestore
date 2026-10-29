@@ -1,0 +1,365 @@
+/* ==========================================
+   1. RESET & GAYA UTAMA BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b090a; /* Hitam pekat cyberpunk */
+    color: #f5f3f4;
+    line-height: 1.6;
+}
+
+/* Tata Letak Kontainer */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Judul Kategori Utama */
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+    color: #ff4d6d; /* Pink Neon */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+}
+
+.section-title::after {
+    content: '✦ EXCLUSIVE HOBBY DEPT ✦';
+    display: block;
+    font-size: 0.8rem;
+    color: #ffb3c1;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   2. BAGIAN NAVIGASI ATAS (NAVBAR)
+   ========================================== */
+header {
+    background-color: #161a1d;
+    border-bottom: 3px solid #ff4d6d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 25px rgba(255, 77, 109, 0.15);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ff4d6d;
+    text-shadow: 0 0 8px #ff4d6d;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #a4a1a4;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ff4d6d;
+    text-shadow: 0 0 8px rgba(255, 77, 109, 0.6);
+}
+
+/* ==========================================
+   3. BANNER UTAMA (HERO)
+   ========================================== */
+.hero {
+    background: linear-gradient(rgba(11, 9, 10, 0.5), rgba(11, 9, 10, 0.9)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+    margin-bottom: 50px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 77, 109, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 77, 109, 0.7);
+}
+
+.hero p {
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+    color: #ffb3c1;
+}
+
+/* ==========================================
+   4. KOTAK INFORMASI / DINDING TENTANG TOKO
+   ========================================== */
+.about-box {
+    background: #161a1d;
+    border-left: 5px solid #ff4d6d;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.about-box p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #e5e5e5;
+    font-size: 1.05rem;
+}
+
+/* ==========================================
+   5. SISTEM GRID KATALOG & KARTU PRODUK
+   ========================================== */
+.product-grid {
+    display: grid;
+    /* Grid otomatis menyesuaikan dari 1 kolom hingga maksimal 3 kolom */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-bottom: 60px;
+}
+
+.product-card {
+    background: #161a1d;
+    border: 2px solid #222;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 77, 109, 0.2);
+    border-color: #ff4d6d;
+}
+
+/* Pembungkus Gambar Agar Skalanya Tetap Bagus */
+.img-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: #252525;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.06);
+}
+
+/* Detail Informasi Di Dalam Kartu */
+.product-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-name {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.product-desc {
+    font-size: 0.9rem;
+    color: #a4a1a4;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ff4d6d;
+    margin-bottom: 18px;
+}
+
+/* Tombol Transaksi Utama */
+.btn-order {
+    display: block;
+    text-align: center;
+    background-color: transparent;
+    color: #ff4d6d;
+    border: 2px solid #ff4d6d;
+    text-decoration: none;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-order:hover {
+    background-color: #ff4d6d;
+    color: #0b090a;
+    box-shadow: 0 0 15px #ff4d6d;
+}
+
+/* ==========================================
+   6. ATURAN WARNA BADGE OTOMATIS
+   ========================================== */
+.product-card::before {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #0b090a;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 4px 10px;
+    border-radius: 6px;
+    z-index: 5;
+    letter-spacing: 0.5px;
+}
+
+/* Badge Ready Stock (Pink Neon) */
+.product-card.ready::before {
+    content: 'READY STOCK';
+    background: #ff4d6d;
+    box-shadow: 0 0 8px rgba(255, 77, 109, 0.4);
+}
+
+/* Badge Pre-Order (Biru Cyan) */
+.product-card.po::before {
+    content: 'PRE-ORDER';
+    background: #00b4d8;
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(0, 180, 216, 0.4);
+}
+
+/* Tombol khusus untuk barang Pre-Order */
+.btn-order.btn-po {
+    color: #00b4d8;
+    border-color: #00b4d8;
+}
+
+.btn-order.btn-po:hover {
+    background-color: #00b4d8;
+    color: #0b090a;
+    box-shadow: 0 0 15px #00b4d8;
+}
+
+/* Badge Hampir Habis (Kuning Jingga) */
+.product-card.hot::before {
+    content: 'HAMPIR HABIS';
+    background: #ffb703;
+    box-shadow: 0 0 8px rgba(255, 183, 3, 0.4);
+}
+
+/* ==========================================
+   7. BAGIAN KONTAK & FOOTER BAWAH
+   ========================================== */
+.contact-box {
+    background: #161a1d;
+    border: 2px dashed rgba(255, 77, 109, 0.5);
+    border-radius: 16px;
+    padding: 45px 20px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.contact-item {
+    background: #0b090a;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.contact-item strong {
+    color: #ff4d6d;
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+footer {
+    background-color: #161a1d;
+    color: #a4a1a4;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    border-top: 1px solid #222;
+}
+
+footer span {
+    color: #ff4d6d;
+}
+
+/* ==========================================
+   8. RESPONSIVITAS LAYAR SMARTPHONE
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .contact-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
